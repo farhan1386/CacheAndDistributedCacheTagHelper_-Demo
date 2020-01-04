@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CacheAndDistributedCacheTagHelper__Demo.Models;
+﻿using CacheAndDistributedCacheTagHelper__Demo.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
