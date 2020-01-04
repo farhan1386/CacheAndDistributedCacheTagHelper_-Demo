@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CacheAndDistributedCacheTagHelper__Demo.Models.Employee>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container py-4">
+    <cache enabled="true"></cache>
+    <cache enabled="true" expires-on="@new DateTime(10,01,2020,13,03,30)"></cache>
+    <cache enabled="true" expires-after="@TimeSpan.FromSeconds(60)"></cache>
+    <cache enabled="true" expires-sliding="@TimeSpan.FromSeconds(60)"></cache>
+    <cache enabled="true" vary-by-header="User-Agent"></cache>
+    <cache enabled="true" vary-by-query="Make,Model"></cache>
+    <cache enabled="true" vary-by-route="Make,Model"></cache>
+    <cache enabled="true" vary-by-cookie=".AspNetCore.Identity.Application"></cache>
+    <cache enabled="true" vary-by-user="true"></cache>
+    <cache enabled="true" vary-by="@Model"></cache>
+
+    <cache enabled="true">
+        <label class="control-label">Date Time:</label> @DateTime.Now
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.Name)</th>
+                    <th>@Html.DisplayNameFor(m => m.Position)</th>
+                    <th>@Html.DisplayNameFor(m => m.Office)</th>
+                    <th>@Html.DisplayNameFor(m => m.Age)</th>
+                    <th>@Html.DisplayNameFor(m => m.Salary)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Position</td>
+                        <td>@item.Office</td>
+                        <td>@item.Age</td>
+                        <td>@item.Salary</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </cache>
+</div>
